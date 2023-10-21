@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectaJugador : MonoBehaviour
+public class DetectaJugador_C : MonoBehaviour
 {
     GameObject comEnemigo; //Enlace de comunicacion del area con el enemigo
     LogicaEnemigo2 logica;

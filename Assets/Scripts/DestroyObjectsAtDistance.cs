@@ -17,21 +17,34 @@ public class DestroyObjectsAtDistance : MonoBehaviour
         Vector3 direccion = transform.forward;
         float largoRayo = 5;
 
-        RaycastHit hit; //almacena la informacion de la colision de RayCast
+        
 
-        bool rayoGolpeaObjeto = Physics.Raycast(origen, direccion,
-            out hit, largoRayo);
 
-        if (rayoGolpeaObjeto)
-        {
-            Debug.Log("El rayo impacto!");
-            Debug.DrawRay(origen, direccion * hit.distance, Color.red);
+            RaycastHit hit; //almacena la informacion de la colision de RayCast
 
-            Destroy(hit.collider.gameObject);
-        }
-        else
-        {
-            Debug.DrawRay(origen, direccion * largoRayo, Color.blue);
-        }
+            bool rayoGolpeaObjeto = Physics.Raycast(origen, direccion,
+                out hit, largoRayo);
+
+            if (rayoGolpeaObjeto)
+            {
+                Debug.Log("El rayo impacto!");
+                Debug.DrawRay(origen, direccion * hit.distance, Color.red);
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (!hit.collider.gameObject.CompareTag("Indestructible"))
+                {
+                    Destroy(hit.collider.gameObject);
+                }
+                
+            }
+
+            }
+            else
+            {
+                Debug.DrawRay(origen, direccion * largoRayo, Color.blue);
+            }
+
+        
     }
 }
